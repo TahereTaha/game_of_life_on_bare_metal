@@ -13,4 +13,4 @@ main:
 	jmp .halt
 
 times 510 - ($-$$) db 0
-dw 0x0AA5
+dw 0AA55h
