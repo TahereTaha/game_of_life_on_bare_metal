@@ -1,0 +1,7 @@
+
+**/*.swp
+**/*.o
+myos
+isodir
+myos.iso
+
