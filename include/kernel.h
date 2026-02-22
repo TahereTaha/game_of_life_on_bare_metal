@@ -9,10 +9,10 @@
 #define VGA_HEIGHT	25
 #define VGA_MEMORY	0xB8000 
 
-size_t terminal_row;
-size_t terminal_column;
-uint8_t terminal_color;
-uint16_t* terminal_buffer = (uint16_t*)VGA_MEMORY;
+extern size_t terminal_row;
+extern size_t terminal_column;
+extern uint8_t terminal_color;
+extern uint16_t* terminal_buffer;
 
 /* Hardware text mode color constants. */
 enum vga_color {
@@ -37,6 +37,7 @@ enum vga_color {
 //GENERAL USE FUNCTIONS
 
 void	memcpy_k(void *dest, const void *src, size_t n);
+void	memset_k(void *s, int c, size_t n);
 size_t	strlen(const char *str);
 
 //TERMINAL/DISPLAY FUNCTIONS

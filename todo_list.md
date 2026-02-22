@@ -1,6 +1,6 @@
 - [x] improve the ergonomics of version manager.
 - [ ] improve the ergonomics of compiling the kernel.
-- [ ] add suport for new line.
+- [x] add suport for new line.
 - [ ] render corolfull ascii.
 - [ ] make a interface for the VGA text mode.
 - [ ] make a pixel blink.

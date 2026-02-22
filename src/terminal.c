@@ -17,7 +17,8 @@ static inline uint16_t vga_entry(unsigned char uc, uint8_t color)
 static void	line_jump(void)
 {
 	terminal_column = 0;
-	terminal_row++;
+	if (++terminal_row == VGA_HEIGHT)
+		scroll();
 }
 
 void	scroll(void)
@@ -31,6 +32,8 @@ void	scroll(void)
 			memcpy_k((void *) &terminal_buffer[index_dst], (void *) &terminal_buffer[index_src], 1);
 		}
 	}
+	memset_k(&terminal_buffer[(VGA_HEIGHT  - 1) * VGA_WIDTH], 0, VGA_WIDTH);
+	terminal_row = VGA_HEIGHT - 1;
 }
 
 int	is_special_character(char c)
