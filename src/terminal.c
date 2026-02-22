@@ -21,6 +21,13 @@ static void	line_jump(void)
 		scroll();
 }
 
+void	setColour(enum vga_color c)
+{
+	if (c < 0 || c > 15)
+		return ;
+	terminal_color = c;
+}
+
 void	scroll(void)
 {
 	for (size_t y = 0; y < VGA_HEIGHT; y++)

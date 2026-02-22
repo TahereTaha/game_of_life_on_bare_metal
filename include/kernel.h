@@ -50,5 +50,6 @@ void	terminal_write(const char* data, size_t size);
 void	terminal_writestring(const char* data);
 void	scroll(void);
 int		is_special_character(char c);
+void	setColour(enum vga_color c);
 
 #endif
