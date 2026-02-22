@@ -2,10 +2,17 @@
 #include <stddef.h>
 #include <stdint.h>
 
+/* Check if the compiler thinks you are targeting the wrong operating system. */
 #if defined(__linux__)
-#error "puta, fes servir el cross compiler"
+#error "You are not using a cross-compiler, you will most certainly run into trouble"
 #endif
 
+/* This tutorial will only work for the 32-bit ix86 targets. */
+#if !defined(__i386__)
+#error "This tutorial needs to be compiled with a ix86-elf compiler"
+#endif
+
+/* Hardware text mode color constants. */
 enum vga_color {
 	VGA_COLOR_BLACK = 0,
 	VGA_COLOR_BLUE = 1,
@@ -25,62 +32,53 @@ enum vga_color {
 	VGA_COLOR_WHITE = 15,
 };
 
-static inline	uint8_t vga_entry_color(enum vga_color fg, enum vga_color bg)
+static inline uint8_t vga_entry_color(enum vga_color fg, enum vga_color bg) 
 {
-	return (fg | bg << 4);
+	return fg | bg << 4;
 }
 
-static inline	uint16_t vga_entry(unsigned char uc, uint8_t color)
+static inline uint16_t vga_entry(unsigned char uc, uint8_t color) 
 {
-	return ((uint16_t) uc | (uint16_t) color << 8);
+	return (uint16_t) uc | (uint16_t) color << 8;
 }
 
-size_t		strlen(const char* str)
+size_t strlen(const char* str) 
 {
-	size_t		len;
-
-	len = 0;
+	size_t len = 0;
 	while (str[len])
 		len++;
-	return (len);
+	return len;
 }
 
-#define VGA_WIDTH	80
-#define VGA_HEIGHT	25
-#define VGA_MEMORY	0xb8000
+#define VGA_WIDTH   80
+#define VGA_HEIGHT  25
+#define VGA_MEMORY  0xB8000 
 
-size_t		terminal_row;
-size_t		terminal_column;
-uint8_t		terminal_color;
-uint16_t		*terminal_buffer = (uint16_t *)VGA_MEMORY;
+size_t terminal_row;
+size_t terminal_column;
+uint8_t terminal_color;
+uint16_t* terminal_buffer = (uint16_t*)VGA_MEMORY;
 
-void	terminal_initialize(void)
+void terminal_initialize(void) 
 {
-	size_t		y = 0;
-	size_t		x = 0;
-
 	terminal_row = 0;
 	terminal_column = 0;
 	terminal_color = vga_entry_color(VGA_COLOR_LIGHT_GREY, VGA_COLOR_BLACK);
-
-	while (y < VGA_HEIGHT)
-	{
-		while (x < VGA_HEIGHT)
-		{
-			const size_t	index = y * VGA_WIDTH + x;
+	
+	for (size_t y = 0; y < VGA_HEIGHT; y++) {
+		for (size_t x = 0; x < VGA_WIDTH; x++) {
+			const size_t index = y * VGA_WIDTH + x;
 			terminal_buffer[index] = vga_entry(' ', terminal_color);
-			x++;
 		}
-		y++;
 	}
 }
 
-void	terminal_setcolor(uint8_t color)
+void terminal_setcolor(uint8_t color) 
 {
 	terminal_color = color;
 }
 
-void	terminal_putentryat(char c, uint8_t color, size_t x, size_t y)
+void terminal_putentryat(char c, uint8_t color, size_t x, size_t y) 
 {
 	const size_t index = y * VGA_WIDTH + x;
 	terminal_buffer[index] = vga_entry(c, color);
@@ -113,5 +111,5 @@ void kernel_main(void)
 	terminal_initialize();
 
 	/* Newline support is left as an exercise. */
-	terminal_writestring("Sabias que en portugues perejil se dice salsa?\n");
+	terminal_writestring("Holo mundo, esto funciona!!!!\n");
 }
