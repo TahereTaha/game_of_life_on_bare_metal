@@ -1,0 +1,24 @@
+#include "../include/kernel.h"
+
+//GENERAL USE FUNCTIONS
+
+void	memcpy_k(void *dest, const void *src, size_t n)//written with k to aviod built-in warning
+{
+	size_t		i;
+
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+		i++;
+	}
+}
+
+size_t strlen(const char *str) 
+{
+	size_t len = 0;
+	while (str[len])
+		len++;
+	return len;
+}
+

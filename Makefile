@@ -20,6 +20,8 @@ LINK_FILE	=	linker.ld
 BOOT_OBJ	=	boot.o			\
 
 OBJ			:=	kernel.o		\
+				terminal.o		\
+				functions.o		\
 
 OBJ			:=	$(addprefix $(BIN_DIR), $(OBJ))
 
