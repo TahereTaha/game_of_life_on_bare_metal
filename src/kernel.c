@@ -17,13 +17,13 @@ void kernel_main(void)
 	terminal_writestring("Que pedira??\n");
 	terminal_writestring("\n");
 	terminal_writestring("\n");
-	setColour(VGA_COLOR_BLUE);
+	setColour(BLUE);
 	terminal_writestring("   _____         _       _____            _____         _       _____         \n");
 	terminal_writestring("  / ____|  /\\   | |     / ____|  /\\      / ____|  /\\   | |     / ____|  /\\    \n");
-	setColour(VGA_COLOR_GREEN);
+	setColour(GREEN);
 	terminal_writestring(" | (___   /  \\  | |    | (___   /  \\    | (___   /  \\  | |    | (___   /  \\   \n");
 	terminal_writestring("  \\___ \\ / /\\ \\ | |     \\___ \\ / /\\ \\    \\___ \\ / /\\ \\ | |     \\___ \\ / /\\ \\  \n");
-	setColour(VGA_COLOR_MAGENTA);
+	setColour(MAGENTA);
 	terminal_writestring("  ____) / ____ \\| |____ ____) / ____ \\   ____) / ____ \\| |____ ____) / ____ \\ \n");
 	terminal_writestring(" |_____/_/    \\_\\______|_____/_/    \\_\\ |_____/_/    \\_\\______|_____/_/    \\_ \n");
 	terminal_writestring("                                                                              \n");
