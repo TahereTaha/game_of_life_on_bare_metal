@@ -87,12 +87,14 @@ static void	print(int	*table)
 		while (x < VGA_WIDTH)
 		{
 			if (table[(y * VGA_WIDTH) + x] == 0)
+			{
+				setColour(WHITE);
 				terminal_putchar('0');
+			}
 			else
 			{
 				setColour(RED);
-				terminal_putchar('1');
-				setColour(WHITE);
+				terminal_putchar('0');
 			}
 			x++;
 		}
@@ -155,6 +157,187 @@ static void	put_map(int *table, char *map)
 	}
 }
 
+static void		cutrewait(void)
+{
+	unsigned long long	i;
+
+	i = 0;
+	i--;
+	while (i != 0)
+		i--;
+	i = 0;
+	i--;
+	while (i != 0)
+		i--;
+	i = 0;
+	i--;
+	while (i != 0)
+		i--;
+	i = 0;
+	i--;
+	while (i != 0)
+		i--;
+	i = 0;
+	i--;
+	while (i != 0)
+		i--;
+	i = 0;
+	i--;
+	while (i != 0)
+		i--;
+	i = 0;
+	i--;
+	while (i != 0)
+		i--;
+	i = 0;
+	i--;
+	while (i != 0)
+		i--;
+	i = 0;
+	i--;
+	while (i != 0)
+		i--;
+	i = 0;
+	i--;
+	while (i != 0)
+		i--;
+	i = 0;
+	i--;
+	while (i != 0)
+		i--;
+	i = 0;
+	i--;
+	while (i != 0)
+		i--;
+	i = 0;
+	i--;
+	while (i != 0)
+		i--;
+	i = 0;
+	i--;
+	while (i != 0)
+		i--;
+	i = 0;
+	i--;
+	while (i != 0)
+		i--;
+	i = 0;
+	i--;
+	while (i != 0)
+		i--;
+	i = 0;
+	i--;
+	while (i != 0)
+		i--;
+	i = 0;
+	i--;
+	while (i != 0)
+		i--;
+}
+
+static void		cutrewaitcompilation(void)
+{
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+		cutrewait();
+}
+
 void	game(void)//may add parameters for size later on
 {
 	int		table[VGA_WIDTH * VGA_WIDTH];
@@ -181,7 +364,32 @@ void	game(void)//may add parameters for size later on
 					
 	bzero_k(table, VGA_WIDTH * VGA_WIDTH);
 	put_map(table, map);
-	generation(table);
-	print(table);
+	while (true)
+	{
+		generation(table);
+		print(table);
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+		cutrewaitcompilation();
+	}
 	return ;
 }
