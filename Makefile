@@ -13,7 +13,7 @@ CC			=	i686-elf-gcc
 
 OS_NAME		=	myos
 
-CCFLAGS		:=	-Wall -Wextra -ffreestanding -std=gnu99 -O2
+CCFLAGS		:=	-Wall -Wextra -ffreestanding -std=gnu99
 
 LINK_FILE	=	linker.ld
 

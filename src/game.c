@@ -100,7 +100,6 @@ static void	print(int	*table)
 		}
 		y++;
 	}
-	terminal_putchar('\n');
 }
 
 static void	generation(int *table)
@@ -157,6 +156,15 @@ static void	put_map(int *table, char *map)
 		y++;
 	}
 }
+static void		cutrewait(void)
+{
+	int		i;
+
+	i = 0;
+	while (i != 25000000)
+		i++;
+}
+
 
 void	game(void)//may add parameters for size later on
 {
@@ -188,6 +196,7 @@ void	game(void)//may add parameters for size later on
 	{
 		generation(table);
 		print(table);
+		cutrewait();
 	}
 	return ;
 }
