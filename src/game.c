@@ -89,10 +89,13 @@ static void	print(int	*table)
 			if (table[(y * VGA_WIDTH) + x] == 0)
 				terminal_putchar('0');
 			else
+			{
+				setColour(RED);
 				terminal_putchar('1');
+				setColour(WHITE);
+			}
 			x++;
 		}
-		terminal_putchar('\n');//may not be needed
 		y++;
 	}
 }
