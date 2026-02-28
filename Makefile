@@ -22,6 +22,7 @@ BOOT_OBJ	=	boot.o			\
 OBJ			:=	kernel.o		\
 				terminal.o		\
 				functions.o		\
+				game.o		\
 
 OBJ			:=	$(addprefix $(BIN_DIR), $(OBJ))
 

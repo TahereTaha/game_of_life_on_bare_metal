@@ -26,6 +26,21 @@ void	memcpy_k(void *dest, const void *src, size_t n)//written with k to aviod bu
 	}
 }
 
+void	bzero_k(void *s, size_t n)
+{
+	size_t			i;
+
+	i = 0;
+	if (s == 0)
+		return ;
+	while (i < n)
+	{
+		((unsigned char *)s)[i] = 0;
+		i++;
+	}
+}
+
+
 size_t strlen(const char *str) 
 {
 	size_t len = 0;
